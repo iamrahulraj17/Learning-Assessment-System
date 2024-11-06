@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrepBank | Choose Option</title>
+  <link rel="icon" type="x-icon" href="icon.png">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+    }
+    .btn-primary{
+        color: #d0f0e4;
+    }
+    .split {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #333;
+    }
+    .left-section {
+      background: linear-gradient(to bottom right, #e0f7e9, #d0f0e4);
+    }
+    .right-section {
+      background: #fff;
+    }
+    .btn-primary {
+      background-color: #28a745;
+      border: none;
+    }
+    .badge-business {
+      background-color: #28a745;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .card {
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 0px 10px cyan,
+                    0px 0px 20px cyan,
+                    0px 0px 40px cyan,
+                    0px 0px 80px cyan;
+      }
+      #login{
+        background-color: #d0f0e4;
+      }
+      h2{
+        font-size: 3rem;
+      }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Left Section -->
+      <div class="col-md-6 split left-section text-center">
+        <h2>Create an <span style="color: #28a745;">Account</span></h2>
+        <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-6">
+                <div class="card mt-5">
+                  <div class="card-body">
+                    <h3 class="text-center mb-4">Signup</h3>
+                    <form name="myForm" id="signupForm" action="signup.php" method="POST" onsubmit="return validateForm()">
+                      <div class="form-group">
+                        <label for="firstname">Name</label>
+                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter Fullname" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="cpassword">Confirm Password</label>
+                        <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="Password" required>
+                      </div>
+                      <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <p id="message" style="color: red;"></p>
+
+      <!-- Right Section -->
+      <div class="col-md-6 split right-section text-center">
+        <h2>Login to your <span style="color: #28a745;">Account</span></h2>
+        <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-6">
+                <div class="card mt-5" id="login">
+                  <div class="card-body">
+                    <h3 class="text-center mb-4">Login</h3>
+                    <form id="loginForm" action="login.php" method="POST">
+                      <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                      </div>
+                      <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    </form>
+                    <div id="message" class="mt-3 text-center"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  function validateForm() {
+    let x = document.forms["myForm"]["password"].value;
+    let y = document.forms["myForm"]["cpassword"].value;
+    if (x != y) {
+      alert("Password & Confirm Password must be same");
+      return false;
+    }
+  }
+</script>
+</html>
